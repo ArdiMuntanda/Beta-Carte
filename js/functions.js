@@ -24,15 +24,17 @@ function showCards() {
 		cardImg.setAttribute("position", i);
 		handBlock.appendChild(cardImg);
 	}
-}
-function detectPlay() {
-	let playingCard = document.querySelectorAll(".hand_block.my div");
-	playingCard.forEach(card => {
-		card.addEventListener("click", function (e) {
-			kopo.turnPlay(kopo.player[0].play(card.getAttribute("position")));
-			showCards();
 
-		});
-	});
-	console.log(kopo);
+	handBlock = document.querySelector(".hand_block.opponent");
+	cardList = kopo.player[1].hand;
+	console.log(cardList);
+	handBlock.innerHTML = "";
+	for (i = 0; i < cardList.length; i++) {
+		cardImg = document.createElement("div");
+		cardImg.className = "opponent_card";
+		cardImg.id = cardList[i];
+		cardImg.style.background = "url('cartes/back.svg') bottom center no-repeat";
+		cardImg.setAttribute("position", i);
+		handBlock.appendChild(cardImg);
+	}
 }
