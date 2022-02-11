@@ -16,6 +16,7 @@ function showCards() {
 	console.log(cardList);
 	let cardImg;
 	handBlock.innerHTML = "";
+	//Show the player cards
 	for (let i = 0; i < cardList.length; i++) {
 		cardImg = document.createElement("div");
 		cardImg.className = "my_card";
@@ -25,6 +26,7 @@ function showCards() {
 		handBlock.appendChild(cardImg);
 	}
 
+	//Show the opponent cards
 	handBlock = document.querySelector(".hand_block.opponent");
 	cardList = kopo.player[1].hand;
 	console.log(cardList);
@@ -33,8 +35,10 @@ function showCards() {
 		cardImg = document.createElement("div");
 		cardImg.className = "opponent_card";
 		cardImg.id = cardList[i];
-		cardImg.style.background = "url('cartes/back.svg') bottom center no-repeat";
+		cardImg.style.background = "url('cartes/back.svg') bottom center no-repeat contain";
 		cardImg.setAttribute("position", i);
 		handBlock.appendChild(cardImg);
 	}
+
+	//Show the game card
 }
