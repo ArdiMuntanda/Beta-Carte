@@ -62,7 +62,6 @@ body {
     height: 135px;
 }
 .my_card {
-    background: url("cartes/5d.svg") bottom center no-repeat;
     background-size: contain;
     height: 115%;
     width: 18%; 

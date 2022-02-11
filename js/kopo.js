@@ -133,7 +133,7 @@ class Kopo extends Game {
 	constructor(n) {
 		super(n);
 		this.deck.shuffle();
-		this.serve(3);
+		this.serve(4);
 
 		this.gameCard = null; //aucune carte sur la table 
 		this.gameMaster = 0;  
