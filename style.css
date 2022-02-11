@@ -101,7 +101,7 @@ body {
     background-size: 65%;
 }
 
-@media screen and (min-device-width: 490px) and (min-device-height: 850px) {
+@media screen and (min-device-width: 490px), (min-device-height: 850px) {
     body {
         height: 897px;
         width: 415px;
