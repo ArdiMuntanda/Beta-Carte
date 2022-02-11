@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    position: relative;
 }
 .entete {
     color:white;
@@ -100,4 +100,12 @@ body {
     border: 2px solid #AB060F;
     background: url("photos/video_call.png") center center no-repeat;
     background-size: 65%;
+}
+
+@media screen and (min-device-width: 490px) and (min-device-height: 850px) {
+    body {
+        height: 897px;
+        width: 415px;
+        margin: auto;
+    }
 }
