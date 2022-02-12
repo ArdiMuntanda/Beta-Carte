@@ -39,6 +39,9 @@ body {
     background: url("photos/table.jpg") center no-repeat;
     background-size: cover;
     height: 40vh;
+    position: relative;
+    display: grid;
+    place-items: center;
 }
 .hand_block {
     height: 105px;
@@ -57,8 +60,6 @@ body {
     margin: 5px;
 }
 .hand_block.my {
-    position: absolute;
-    bottom: 0;
     height: 135px;
 }
 .my_card {
@@ -100,7 +101,24 @@ body {
     background: url("photos/video_call.png") center center no-repeat;
     background-size: 65%;
 }
-
+.game_card {
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    /* margin: auto; */
+}
+.turn {  
+    border: 2px solid transparent;
+    animation: turnTick 2s infinite;
+}
+@keyframes turnTick {
+    0% {
+        border: 2px solid transparent;
+    }
+    50% {
+        border: 2px solid #3362E8;
+    }
+}
 @media screen and (min-device-width: 490px), (min-device-height: 850px) {
     body {
         height: 897px;

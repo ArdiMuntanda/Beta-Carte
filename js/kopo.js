@@ -97,7 +97,6 @@ class Player {
 		
 		this.hand = [...newHand]; 
 		this.nCards = this.hand.length; 
-		
 		return cards; 
 	}
 }
@@ -141,8 +140,8 @@ class Kopo extends Game {
 
 	turnPlay(cardIndex) {
 		let card = this.player[this.turn].hand[cardIndex];// cette variable contient la carte que le joueur a décidé de jouer
-		if(this.gameCard == null) { //si il n'y a aucune carte sur la table, 
-			this.player[this.turn].play(cardIndex);// extrait la carte choisi de la main du joueur dont c'est le tour 
+		if(this.gameCard === null) { //si il n'y a aucune carte sur la table, 
+			this.player[this.turn].play([cardIndex]);// extrait la carte choisi de la main du joueur dont c'est le tour 
 			this.gameCard = card;// ça carte va imposer la fleur aux autre 
 			this.gameMaster= this.turn; 
 			this.turnEnder = this.setTurnEnder(this.gameMaster);// une variable pour savoir quand sera le dernier à jouer sur cette carte imposée

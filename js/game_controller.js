@@ -4,11 +4,10 @@ showCards();
 detectPlay();
 function detectPlay() {
 	let playingCard = document.querySelectorAll(".hand_block.my div");
-	playingCard.forEach(card => {
-		card.addEventListener("click", function (e) {
-            console.log("okay");
+	playingCard.forEach(cardImg => {
+		cardImg.addEventListener("click", function (e) {
             if (kopo.turn == 0) {
-                kopo.turnPlay(kopo.player[0].play(card.getAttribute("position")));
+                kopo.turnPlay(parseInt(cardImg.getAttribute("position")));
                 showCards();
                 detectPlay();
             } else {

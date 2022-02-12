@@ -13,7 +13,6 @@ function cardValue(card) {
 function showCards() {
 	let handBlock = document.querySelector(".hand_block.my");
 	let cardList = kopo.player[0].hand;
-	console.log(cardList);
 	let cardImg;
 	handBlock.innerHTML = "";
 	//Show the player cards
@@ -29,7 +28,6 @@ function showCards() {
 	//Show the opponent cards
 	handBlock = document.querySelector(".hand_block.opponent");
 	cardList = kopo.player[1].hand;
-	console.log(cardList);
 	handBlock.innerHTML = "";
 	for (i = 0; i < cardList.length; i++) {
 		cardImg = document.createElement("div");
@@ -40,5 +38,18 @@ function showCards() {
 		handBlock.appendChild(cardImg);
 	}
 
-	//Show the game card
+	//Show the gamecard
+	if (kopo.gameCard != null) {
+		
+		console.log(kopo.gameCard);
+	   let table = document.querySelector(".table");
+	   let gameCard = document.createElement("div");
+	   gameCard.style.background = "url('cartes/"+kopo.gameCard+".svg') bottom center no-repeat";
+	   gameCard.style.backgroundSize = "contain";
+	   gameCard.className = "game_card";
+	   gameCard.style.width = "18%";
+	   gameCard.style.height = "110px";
+   
+	   table.appendChild(gameCard);
+	}
 }
