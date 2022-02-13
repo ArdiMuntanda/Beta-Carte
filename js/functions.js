@@ -38,11 +38,12 @@ function showCards() {
 		handBlock.appendChild(cardImg);
 	}
 
-	//Show the gamecard
+	//Show table cards 
 	if (kopo.gameCard != null) {
 		
 		console.log(kopo.gameCard);
 	   let table = document.querySelector(".table");
+	   table.innerHTML = "";
 	   let gameCard = document.createElement("div");
 	   gameCard.style.background = "url('cartes/"+kopo.gameCard+".svg') bottom center no-repeat";
 	   gameCard.style.backgroundSize = "contain";
@@ -51,5 +52,47 @@ function showCards() {
 	   gameCard.style.height = "110px";
    
 	   table.appendChild(gameCard);
+	}
+}
+
+function detectPlay() {
+	let playingCard = document.querySelectorAll(".hand_block.my div");
+	playingCard.forEach(cardImg => {
+		cardImg.addEventListener("click", function (e) {
+            if (kopo.turn == 0) {
+                kopo.turnPlay(parseInt(cardImg.getAttribute("position")));
+                showCards();
+                document.getElementById("ordi_turn").click();
+            } else {
+                console.error("Attendez votre tour pour jouer !");
+            }
+		});
+	});
+}
+
+function getHigherCard (hand) {
+	let higher = hand[0];
+	let toReturn;
+	for (let e = 1; e < hand.length; e++) {
+		if (cardValue(higher) < cardValue(hand[e])) {
+			toReturn = hand[e];
+		}
+	}
+	return [toReturn, hand.indexOf(toReturn)];
+}
+
+function turnTick() {
+	if (kopo.turn == 0) {
+		document.querySelector(".my_zone").classList.add("turn");
+		document.querySelector(".opponent_zone").classList.remove("turn");
+	} else {
+		document.querySelector(".opponent_zone").classList.add("turn");
+		document.querySelector(".my_zone").classList.remove("turn");
+	}
+}
+
+function wipeTable() {
+	if (kopo.gameCard == null) {
+		document.querySelector(".table").innerHTML = "";
 	}
 }

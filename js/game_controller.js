@@ -2,17 +2,21 @@ let kopo = new Kopo(2);
 console.log(kopo);
 showCards();
 detectPlay();
-function detectPlay() {
-	let playingCard = document.querySelectorAll(".hand_block.my div");
-	playingCard.forEach(cardImg => {
-		cardImg.addEventListener("click", function (e) {
-            if (kopo.turn == 0) {
-                kopo.turnPlay(parseInt(cardImg.getAttribute("position")));
-                showCards();
-                detectPlay();
-            } else {
-                console.error("Attendez votre tour pour jouer !");
-            }
-		});
-	});
-}
+turnTick()
+// turn management
+document.querySelectorAll(".turn").forEach(element => {
+    element.addEventListener("change", function (e) {
+        if (kopo.turn == 0) {
+            turnTick()
+            detectPlay();
+            wipeTable();
+        } else if (kopo.turn == 1) {
+            turnTick();
+            setTimeout(ordiPlay, 3000);
+            wipeTable();
+            document.getElementById("my_turn").click();
+        }
+    });
+});
+
+
