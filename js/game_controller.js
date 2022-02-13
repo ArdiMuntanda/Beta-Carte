@@ -7,7 +7,7 @@ turnTick()
 document.querySelectorAll(".turn").forEach(element => {
     element.addEventListener("change", function (e) {
         if (kopo.turn == 0) {
-            turnTick()
+            turnTick();
             detectPlay();
             wipeTable();
         } else if (kopo.turn == 1) {
