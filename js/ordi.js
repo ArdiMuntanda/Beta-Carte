@@ -49,7 +49,6 @@ function ordiPlay() {
     } else if (kopo.gameCard == null && kopo.gameMaster == 1) {
         // play randomly
         kopo.turnPlay([getHigherCard(kopo.player[1].hand)[1]]);
-
         document.getElementById("my_turn").click();
     }
     showCards();

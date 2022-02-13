@@ -63,6 +63,7 @@ function detectPlay() {
                 kopo.turnPlay(parseInt(cardImg.getAttribute("position")));
                 showCards();
                 document.getElementById("ordi_turn").click();
+				detectPlay()
             } else {
                 console.error("Attendez votre tour pour jouer !");
             }
