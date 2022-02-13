@@ -4,8 +4,7 @@ showCards();
 detectPlay();
 turnTick()
 // turn management
-document.querySelectorAll(".turn").forEach(element => {
-    element.addEventListener("change", function (e) {
+document.body.addEventListener("change", function (e) {
         if (kopo.turn == 0) {
             turnTick();
             detectPlay();
@@ -16,7 +15,6 @@ document.querySelectorAll(".turn").forEach(element => {
             wipeTable();
             document.getElementById("my_turn").click();
         }
-    });
 });
 
 
