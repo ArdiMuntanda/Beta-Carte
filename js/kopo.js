@@ -198,8 +198,6 @@ class Kopo extends Game {
 		this.player[this.turn].receive(this.gameCard);
 		this.gameCard = null; 
 		this.turn = this.gameMaster;// donner le tour au propiétair de cette carte la plus puissante (maitre du jeu).
-		turnManager();
-
 	}
 
 	setTurnEnder(gameMaster) { // une  fonction pour savoir qui sera le dernier à jouer sur une nouvelle carte imposée par un maitre de jeu

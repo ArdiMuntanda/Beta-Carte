@@ -71,6 +71,19 @@ function detectPlay() {
             }
 		});
 	});
+	if (document.querySelector(".game_card") != null) {
+
+		document.querySelector(".game_card").addEventListener("click", function (e){
+			if (kopo.turn == 0) {
+				console.log('click detected');
+				kopo.pickGameCard();
+				showCards();
+				turnManager();
+			} else {
+				console.error("Attendez votre tour pour jouer !");
+			}
+		});
+	}
 	return true;
 }
 
@@ -78,6 +91,7 @@ function getHigherCard (hand) {
 	let higher = hand[0];
 	let toReturn;
 	for (let e = 1; e < hand.length; e++) {
+		console.log()
 		if (cardValue(higher) < cardValue(hand[e])) {
 			toReturn = hand[e];
 		}
