@@ -198,7 +198,7 @@ class Kopo extends Game {
 		this.player[this.turn].receive(this.gameCard);
 		this.gameCard = null; 
 		this.turn = this.gameMaster;// donner le tour au propiétair de cette carte la plus puissante (maitre du jeu).
-		document.getElementById("ordi_turn").click();
+		turnManager();
 
 	}
 
