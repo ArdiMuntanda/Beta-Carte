@@ -11,7 +11,7 @@ function ordiPlay() {
 
         if (positions.length == 0) {
             kopo.pickGameCard();
-            turnManager();        
+            turnManager();  
         } else if (positions.length == 1) {
             if (parseInt(cardValue(kopo.player[1].hand[0])) < parseInt(cardValue(kopo.gameCard))) {
                 console.log("1 <");
@@ -34,7 +34,7 @@ function ordiPlay() {
             if (parseInt(cardValue(kopo.player[1].hand[parseInt(toPlay)])) < parseInt(cardValue(kopo.gameCard))) {
                 console.log("+ <");
                 kopo.turnPlay([parseInt(toPlay)]);
-                turnManager();            
+                turnManager();  
             } else {
                 console.log("+ >");
                 kopo.turnPlay([parseInt(toPlay)]);
@@ -48,6 +48,6 @@ function ordiPlay() {
         let higher = getHigherCard(kopo.player[1].hand);
         console.log("l'ordi joue " + higher[0]);
         kopo.turnPlay([higher[1]]);
-        turnManager();    
+        turnManager();
     }
 }
