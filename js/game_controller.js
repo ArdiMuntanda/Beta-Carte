@@ -7,11 +7,11 @@ turnTick()
 document.body.addEventListener("change", function (e) {
         let target = e.target;
         console.log(target);
-        if (target.id = "my_turn" && kopo.turn == 0) {
+        if (target.id == "my_turn" && kopo.turn == 0) {
             turnTick();
             detectPlay();
             wipeTable();
-        } else if (target.id = "ordi_turn" && kopo.turn == 1) {
+        } else if (target.id == "ordi_turn" && kopo.turn == 1) {
             turnTick();
             setTimeout(ordiPlay, 3000);
             wipeTable();
