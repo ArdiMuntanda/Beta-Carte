@@ -56,25 +56,42 @@ function showCards() {
 }
 
 function detectPlay() {
-	let playingCard = document.querySelectorAll(".hand_block.my div");
+	console.log('detect play had been launch');
+	
+	let playingCard = document.querySelectorAll(".hand_block.my .my_card");
 	playingCard.forEach(cardImg => {
 		cardImg.addEventListener("click", function (e) {
             if (kopo.turn == 0) {
+				console.log('click detected');
                 kopo.turnPlay(parseInt(cardImg.getAttribute("position")));
                 showCards();
-                document.getElementById("ordi_turn").click();
-				detectPlay()
+				turnManager();
             } else {
                 console.error("Attendez votre tour pour jouer !");
             }
 		});
 	});
+	if (document.querySelector(".game_card") != null) {
+
+		document.querySelector(".game_card").addEventListener("click", function (e){
+			if (kopo.turn == 0) {
+				console.log('click detected');
+				kopo.pickGameCard();
+				showCards();
+				turnManager();
+			} else {
+				console.error("Attendez votre tour pour jouer !");
+			}
+		});
+	}
+	return true;
 }
 
 function getHigherCard (hand) {
 	let higher = hand[0];
 	let toReturn;
 	for (let e = 1; e < hand.length; e++) {
+		console.log()
 		if (cardValue(higher) < cardValue(hand[e])) {
 			toReturn = hand[e];
 		}
@@ -96,4 +113,18 @@ function wipeTable() {
 	if (kopo.gameCard == null) {
 		document.querySelector(".table").innerHTML = "";
 	}
+}
+
+// turn management
+function turnManager () {
+    if (kopo.turn == 0) {
+        detectPlay();
+		turnTick();
+        wipeTable();
+    } else if (kopo.turn == 1) {
+        turnTick();
+        setTimeout(ordiPlay, 3000);
+		showCards();
+        wipeTable();
+    }
 }

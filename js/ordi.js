@@ -11,18 +11,16 @@ function ordiPlay() {
 
         if (positions.length == 0) {
             kopo.pickGameCard();
-            console.log(document.getElementById("my_turn"));
-            document.getElementById("my_turn").click();
+            turnManager();  
         } else if (positions.length == 1) {
             if (parseInt(cardValue(kopo.player[1].hand[0])) < parseInt(cardValue(kopo.gameCard))) {
                 console.log("1 <");
                 kopo.turnPlay([positions[0]]);
-                console.log(document.getElementById("my_turn"));
-                document.getElementById("my_turn").click();
+                turnManager();
             } else {
                 console.log("1 >");
                 kopo.turnPlay([positions[0]]);
-                setTimeout(ordiPlay, 3000);
+                turnManager();  
             }
         } else if (positions.length > 1) {
             let toPlay = positions[0];
@@ -36,20 +34,20 @@ function ordiPlay() {
             if (parseInt(cardValue(kopo.player[1].hand[parseInt(toPlay)])) < parseInt(cardValue(kopo.gameCard))) {
                 console.log("+ <");
                 kopo.turnPlay([parseInt(toPlay)]);
-                console.log(document.getElementById("my_turn"));
-                document.getElementById("my_turn").click();
+                turnManager();  
             } else {
                 console.log("+ >");
                 kopo.turnPlay([parseInt(toPlay)]);
-                setTimeout(ordiPlay, 3000);
+                turnManager();  
             }
         }
 
 
     } else if (kopo.gameCard == null && kopo.gameMaster == 1) {
         // play randomly
-        kopo.turnPlay([getHigherCard(kopo.player[1].hand)[1]]);
-        document.getElementById("my_turn").click();
+        let higher = getHigherCard(kopo.player[1].hand);
+        console.log("l'ordi joue " + higher[0]);
+        kopo.turnPlay([higher[1]]);
+        turnManager();
     }
-    showCards();
 }
