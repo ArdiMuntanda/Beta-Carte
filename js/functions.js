@@ -56,19 +56,22 @@ function showCards() {
 }
 
 function detectPlay() {
-	let playingCard = document.querySelectorAll(".hand_block.my div");
+	console.log('detect play had been launch');
+	
+	let playingCard = document.querySelectorAll(".hand_block.my .my_card");
 	playingCard.forEach(cardImg => {
 		cardImg.addEventListener("click", function (e) {
             if (kopo.turn == 0) {
+				console.log('click detected');
                 kopo.turnPlay(parseInt(cardImg.getAttribute("position")));
                 showCards();
 				turnManager();
-				detectPlay();
             } else {
                 console.error("Attendez votre tour pour jouer !");
             }
 		});
 	});
+	return true;
 }
 
 function getHigherCard (hand) {
@@ -96,4 +99,18 @@ function wipeTable() {
 	if (kopo.gameCard == null) {
 		document.querySelector(".table").innerHTML = "";
 	}
+}
+
+// turn management
+function turnManager () {
+    if (kopo.turn == 0) {
+        detectPlay();
+		turnTick();
+        wipeTable();
+    } else if (kopo.turn == 1) {
+        turnTick();
+        setTimeout(ordiPlay, 3000);
+		showCards();
+        wipeTable();
+    }
 }
