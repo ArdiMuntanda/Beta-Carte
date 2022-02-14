@@ -5,15 +5,17 @@ detectPlay();
 turnTick()
 // turn management
 document.body.addEventListener("change", function (e) {
-        if (kopo.turn == 0) {
+        let target = e.target;
+        console.log(target);
+        if (target.id = "my_turn" && kopo.turn == 0) {
             turnTick();
             detectPlay();
             wipeTable();
-        } else if (kopo.turn == 1) {
+        } else if (target.id = "ordi_turn" && kopo.turn == 1) {
             turnTick();
             setTimeout(ordiPlay, 3000);
             wipeTable();
-            document.getElementById("my_turn").click();
+            document.querySelector(".my_turn").click();
         }
 });
 

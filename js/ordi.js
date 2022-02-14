@@ -12,13 +12,13 @@ function ordiPlay() {
         if (positions.length == 0) {
             kopo.pickGameCard();
             console.log(document.getElementById("my_turn"));
-            document.getElementById("my_turn").click();
+            document.querySelector(".my_turn").click();
         } else if (positions.length == 1) {
             if (parseInt(cardValue(kopo.player[1].hand[0])) < parseInt(cardValue(kopo.gameCard))) {
                 console.log("1 <");
                 kopo.turnPlay([positions[0]]);
-                console.log(document.getElementById("my_turn"));
-                document.getElementById("my_turn").click();
+                console.log(document.querySelector(".my_turn"));
+                document.querySelector(".my_turn").click();
             } else {
                 console.log("1 >");
                 kopo.turnPlay([positions[0]]);
@@ -37,7 +37,7 @@ function ordiPlay() {
                 console.log("+ <");
                 kopo.turnPlay([parseInt(toPlay)]);
                 console.log(document.getElementById("my_turn"));
-                document.getElementById("my_turn").click();
+                document.querySelector(".my_turn").click();
             } else {
                 console.log("+ >");
                 kopo.turnPlay([parseInt(toPlay)]);
@@ -49,7 +49,7 @@ function ordiPlay() {
     } else if (kopo.gameCard == null && kopo.gameMaster == 1) {
         // play randomly
         kopo.turnPlay([getHigherCard(kopo.player[1].hand)[1]]);
-        document.getElementById("my_turn").click();
+        document.querySelector(".my_turn").click();
     }
     showCards();
 }
