@@ -139,6 +139,7 @@ class Kopo extends Game {
 	}
 
 	turnPlay(cardIndex) {
+		console.log(cardIndex);
 		let card = this.player[this.turn].hand[cardIndex];// cette variable contient la carte que le joueur a décidé de jouer
 		if(this.gameCard === null) { //si il n'y a aucune carte sur la table, 
 			this.player[this.turn].play([cardIndex]);// extrait la carte choisi de la main du joueur dont c'est le tour 

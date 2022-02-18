@@ -63,7 +63,7 @@ function detectPlay() {
 		cardImg.addEventListener("click", function (e) {
             if (kopo.turn == 0) {
 				console.log('click detected');
-                kopo.turnPlay(parseInt(cardImg.getAttribute("position")));
+                kopo.turnPlay([parseInt(cardImg.getAttribute("position"))]);
                 showCards();
 				turnManager();
             } else {
@@ -96,6 +96,7 @@ function getHigherCard (hand) {
 			toReturn = hand[e];
 		}
 	}
+	console.log(toReturn);
 	return [toReturn, hand.indexOf(toReturn)];
 }
 
@@ -124,7 +125,6 @@ function turnManager () {
     } else if (kopo.turn == 1) {
         turnTick();
         setTimeout(ordiPlay, 3000);
-		showCards();
         wipeTable();
     }
 }
