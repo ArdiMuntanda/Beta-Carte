@@ -57,7 +57,6 @@ function showCards() {
 
 function detectPlay() {
 	console.log('detect play had been launch');
-	
 	let playingCard = document.querySelectorAll(".hand_block.my .my_card");
 	playingCard.forEach(cardImg => {
 		cardImg.addEventListener("click", function (e) {
@@ -72,7 +71,6 @@ function detectPlay() {
 		});
 	});
 	if (document.querySelector(".game_card") != null) {
-
 		document.querySelector(".game_card").addEventListener("click", function (e){
 			if (kopo.turn == 0) {
 				console.log('click detected');
@@ -88,11 +86,11 @@ function detectPlay() {
 }
 
 function getHigherCard (hand) {
+	console.log("passed hand: " + hand);
 	let higher = hand[0];
 	let toReturn;
 	for (let e = 1; e < hand.length; e++) {
-		console.log()
-		if (cardValue(higher) < cardValue(hand[e])) {
+		if (parseInt(cardValue(higher)) < parseInt(cardValue(hand[e]))) {
 			toReturn = hand[e];
 		}
 	}

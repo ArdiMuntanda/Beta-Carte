@@ -40,7 +40,6 @@ function ordiPlay() {
                 showCards();
                 turnManager();  
             } else {
-                console.log("+ >");
                 kopo.turnPlay([parseInt(toPlay)]);
                 showCards();
                 turnManager();  
@@ -53,7 +52,6 @@ function ordiPlay() {
         let higher = getHigherCard(kopo.player[1].hand);
         console.log("power:" + higher);
         kopo.turnPlay([higher[1]]);
-        console.log(kopo.player[1].hand);
         showCards();
         turnManager();
     }
