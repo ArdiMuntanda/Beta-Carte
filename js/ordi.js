@@ -28,7 +28,7 @@ function ordiPlay() {
         } else if (positions.length > 1) {
             let toPlay = positions[0];
             for (let e = 1; e < positions.length; e++) {
-                if (cardValue(kopo.player[1].hand[toPlay]) < cardValue(kopo.player[1].hand[positions[e]])) {
+                if (cardValue(kopo.player[1].hand[toPlay]) <+ cardValue(kopo.player[1].hand[positions[e]])) {
                     toPlay = positions[e];
                 }
             }
