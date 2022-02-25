@@ -153,6 +153,7 @@ class Kopo extends Game {
 				console.log("le joueur "+ this.turn + "est sorti du jeu");
 				if (this.player.length == 1) { //si il ne restais plus que deux joueur en liste, le joueur sort et la la partie est fini
 					console.log('Fin de la partie !');
+					endGame(this.turn);
 				} else {
 					this.nextTurn();
 				}
@@ -174,6 +175,7 @@ class Kopo extends Game {
 					console.log("le joueur "+ this.turn + "est sorti du jeu");
 					if (this.player.length == 1) {
 						console.log('Fin de la partie !');
+						endGame(this.turn);
 					} else {
 						this.nextTurn();
 					}
@@ -210,7 +212,13 @@ class Kopo extends Game {
 		}
 	}
 
-	kataps(playerNo, pip) { // la fonction KATAPS
+	kataps(playerNo) { // la fonction KATAPS
+		let pip; 
+		if (this.gameCard == null) {
+			pip = null; 
+		} else {
+			pip = cardPip(this.gameCard);
+		}
 		let motif = cardPip(this.player[playerNo].hand[0]);//motif dela première carte du joueur passé en paramètre 
 		if (pip == null || pip == motif) { // verifier si le kataps se passe au début du jeu lorsqu'il n'y a aucune carte imposée ou en plein milieu
 			let katapsExist = false;//variable de verification de l'identicité des motifs des cartes 
@@ -234,6 +242,7 @@ class Kopo extends Game {
 
 				if (this.player.length == 1) {
 					console.log("Fin de la partie");
+					endGame(this.turn);
 				} else {
 					if (this.turn >= this.player.length) {
 						this.turn = 0;

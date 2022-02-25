@@ -125,4 +125,15 @@ function turnManager () {
         setTimeout(ordiPlay, 3000);
         wipeTable();
     }
+	turnTick();
+}
+
+function endGame(winner) {
+	if (winner == 0) {
+		document.getElementById("winner").textContent= "Vous avez gagné la partie !";
+		document.getElementById('end_game').style.display= 'grid';
+	} else {
+		document.getElementById("winner").textContent= "Vous avez perdu la partie !";
+		document.getElementById('end_game').style.display= 'grid';
+	}
 }
