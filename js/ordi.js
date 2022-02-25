@@ -28,7 +28,7 @@ function ordiPlay() {
         } else if (positions.length > 1) {
             let toPlay = positions[0];
             for (let e = 1; e < positions.length; e++) {
-                if (cardValue(kopo.player[1].hand[toPlay]) <+ cardValue(kopo.player[1].hand[positions[e]])) {
+                if (cardValue(kopo.player[1].hand[toPlay]) <= cardValue(kopo.player[1].hand[positions[e]])) {
                     toPlay = positions[e];
                 }
             }
@@ -49,9 +49,11 @@ function ordiPlay() {
 
     } else if (kopo.gameCard == null && kopo.gameMaster == 1) {
         // play randomly
-        let higher = getHigherCard(kopo.player[1].hand);
-        console.log("power:" + higher);
-        kopo.turnPlay([higher[1]]);
+        // let higher = getHigherCard(kopo.player[1].hand);
+        // console.log("power:" + higher);
+        // kopo.turnPlay([higher[1]]);
+        const rndInt = Math.floor(Math.random() * kopo.player[1].hand.length);
+        kopo.turnPlay([rndInt]);
         showCards();
         turnManager();
     }

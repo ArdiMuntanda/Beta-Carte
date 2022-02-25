@@ -90,7 +90,7 @@ function getHigherCard (hand) {
 	let higher = hand[0];
 	let toReturn;
 	for (let e = 1; e < hand.length; e++) {
-		if (parseInt(cardValue(higher)) < parseInt(cardValue(hand[e]))) {
+		if (parseInt(cardValue(higher)) <= parseInt(cardValue(hand[e]))) {
 			toReturn = hand[e];
 		}
 	}
