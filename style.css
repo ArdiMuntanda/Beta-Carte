@@ -137,11 +137,12 @@ body {
     display: block;
     border-radius: 2px;
     margin: 15px;
-    padding: 5px 15px;
+    padding: 7px 20px;
     border: none; 
     box-shadow: 2px 2px 3px black;
     color: white; 
     transition: 0.3s;
+    font-weight: bold;
 }
 .btn:hover {
     box-shadow: none;
