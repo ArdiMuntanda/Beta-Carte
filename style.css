@@ -101,12 +101,12 @@ body {
     background: url("photos/video_call.png") center center no-repeat;
     background-size: 65%;
 }
-.game_card {
-    /* position: absolute;
+/* .game_card {
+    position: absolute;
     top: 50%;
-    left: 50%; */
-    /* margin: auto; */
-}
+    left: 50%; 
+    margin: auto;
+} */
 .turn {  
     border: 2px solid transparent;
     animation: turnTick 2s infinite;
@@ -119,7 +119,7 @@ body {
         border: 2px solid #3362E8;
     }
 }
-#end_game {
+#end_game , #choose_opponent{
     display: none; 
     height: 100vh; 
     width: 100%;
@@ -128,7 +128,7 @@ body {
     z-index: 5;
     place-items: center;
 }
-#end_game div {
+#end_game div, #choose_opponent div {
     background-color: white;
     width: 75%;
     border-radius: 3px;
@@ -152,6 +152,29 @@ body {
 }
 .btn.yellow {
     background-color: #F8AE19;
+}
+#person_container {
+    display: flex; 
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px; 
+    margin: 0px; 
+}
+#person_container li {
+    list-style-type: none;
+
+}
+#person_container strong {
+    display: block; 
+    margin-top: 8px;
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+#person_container li a {
+    text-decoration: none;
+}
+#person_container li img {
+    border: ;
 }
 @media screen and (min-device-width: 490px), (min-device-height: 850px) {
     body {
