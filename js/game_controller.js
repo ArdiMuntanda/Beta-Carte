@@ -8,7 +8,9 @@ document.querySelector("#kevin_person").addEventListener('click', function (e) {
     kopo = new Kopo(2);
     console.log(kopo);
     showCards();
+    document.getElementById("game_melody").play();
     turnManager();
+    
 });
 document.querySelector("#maria_person").addEventListener('click', function (e) {
     console.log("okay");
@@ -18,6 +20,7 @@ document.querySelector("#maria_person").addEventListener('click', function (e) {
     kopo = new Kopo(2);
     console.log(kopo);
     showCards();
+    document.getElementById("game_melody").play();
     turnManager();
 });
 
